@@ -1,3 +1,4 @@
+**English** | [简体中文](README_CN.md)
 # EnderMagnolia.ModdingTemplate & DebugMenuInvoker
 
 ## Description
@@ -48,6 +49,8 @@ Home/End: reset speed/pause
 Numpad 2/4/6/8/5/+/- camera control
 
 1/2/3/4 + Direction = SkillX switch(1+Left: Skill1 switch to left one)
+
+Numpad / Skill set switch
 
 ## Acknowledgments
 UE4SS community, EnderLilies/EnderMagnolia community and testers
