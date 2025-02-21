@@ -2,9 +2,20 @@
 # EnderMagnolia.ModdingTemplate & DebugMenuInvoker
 
 ## 描述
+
 终焉之玛格诺利亚 Debug Menu
 
-## 功能:
+### 安装
+
+下载并解压缩 [release](https://github.com/EnderLiliesFans5040/EnderMagnolia.DebugMenu/releases/latest) DebugMenu.zip 压缩包到您的游戏  `Paks` 文件夹 `steamapps\common\ENDER MAGNOLIA\EnderMagnolia\Content\Paks\`, 使得文件夹 `Paks\DebugMenu\` 恰好包含三个同名文件 `DebugMenu_0_P`.
+
+### 使用
+
+进入游戏存档后, 按下 **[F1]** 查看帮助.
+
+## 功能
+
+### 无修饰键
 
 F2: 开发者遗留菜单
 
@@ -26,13 +37,15 @@ F10: 无重力模式
 
 F12: 详细模式(已包含F7)
 
-### 按住左Shift:
+### 按住左Shift
 
 F1: 展示Hitbox(攻击或抛射物)
 
 F2: 展示触发器,Hurtbox与碰撞胶囊
 
 F3/4/5/6: 格挡状态
+
+F9: 无限跳跃
 
 F12: 扭曲Boss阵营
 
@@ -48,9 +61,12 @@ Home/End: 重置时间流逝速度/时间停止
 
 Numpad 2/4/6/8/5/+/- 相机调整
 
-1/2/3/4 + 方向 = 技能切换(1+左: 第一技能调整为技能图中左边一个技能)
+### 技能组扩展
+
+1/2/3/4 + 方向 = 技能切换(1+左: 将第一技能调整为技能图中左边一个技能)
 
 Numpad / 切换技能组
 
 ## 致谢
+
 UE4SS社区, EnderLilies/EnderMagnolia社区与测试者
