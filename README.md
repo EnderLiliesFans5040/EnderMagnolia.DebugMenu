@@ -45,6 +45,10 @@ F2: Trigger,Hurtbox
 
 F3/4/5/6: Guard states
 
+F7: Fix real speed of player while changing game speed
+
+F8: One Hit KO
+
 F9: Infinite jump
 
 F12: Twist Boss Faction
@@ -59,13 +63,13 @@ Home/End: reset speed/pause
 
 (if Shift+F7 is turned on, Lilac's real speed will be fixed while changing game speed or Lilac local speed)
 
-Numpad 2/4/6/8/5/+/- camera control
+Numpad 2/4/6/8/5/+/-: camera control
 
 ### Skill set extension
 
 1/2/3/4 + Direction = SkillX switch(1+Left: Skill1 switch to left one in the skill menu)
 
-Numpad / Skill set switch
+Numpad /: Skill set switch
 
 ## Acknowledgments
 
