@@ -32,7 +32,9 @@ AGameModeZion::AGameModeZion(const FObjectInitializer& ObjectInitializer) : Supe
     this->RecollectionBossComponent = CreateDefaultSubobject<URecollectionBossComponent>(TEXT("RecollectionBossComponent"));
     this->BossRushComponent = NULL;
     this->EnvironmentLevel = 1;
+    this->EnvironmentLevelOverride = 0;
     this->NewGamePlusGeneration = 0;
+    this->NewGamePlusGenerationOverride = -1;
 }
 
 void AGameModeZion::StartRecollectionBossRush() {
@@ -41,7 +43,19 @@ void AGameModeZion::StartRecollectionBossRush() {
 void AGameModeZion::StartRecollectionBoss(const FDataTableRowHandle& RecollectionBossDataHandle) {
 }
 
+void AGameModeZion::SetNewGamePlusGenerationOverride(int32 GenerationOverride) {
+}
+
+void AGameModeZion::SetEnvironmentLevelOverride(int32 LevelOverride) {
+}
+
 void AGameModeZion::RespawnPlayer(ERespawnReason Reason) {
+}
+
+void AGameModeZion::ResetNewGamePlusGenerationOverride() {
+}
+
+void AGameModeZion::ResetEnvironmentLevelOverride() {
 }
 
 void AGameModeZion::RegisterRecollectionBossComponent(URecollectionBossComponent* NewRecollectionBossComponent) {
@@ -51,10 +65,6 @@ void AGameModeZion::RegisterBossRushComponent(URecollectionBossRushComponent* Ne
 }
 
 void AGameModeZion::NotifyGameEndingReached(EGameEndingType GameEndingType) {
-}
-
-bool AGameModeZion::IsRecollectionBossDead() const {
-    return false;
 }
 
 bool AGameModeZion::IsInNewGamePlus() const {
@@ -85,7 +95,15 @@ FString AGameModeZion::GetPlayTimeAsString() const {
     return TEXT("");
 }
 
+int32 AGameModeZion::GetNewGamePlusGenerationOverride() const {
+    return 0;
+}
+
 int32 AGameModeZion::GetNewGamePlusGeneration() const {
+    return 0;
+}
+
+int32 AGameModeZion::GetMaxEnvironmentLevel(int32 NewNewGamePlusGeneration) {
     return 0;
 }
 
@@ -102,6 +120,14 @@ int32 AGameModeZion::GetGameEndingCountReached() const {
 }
 
 int32 AGameModeZion::GetGameClearCount() const {
+    return 0;
+}
+
+int32 AGameModeZion::GetEnvironmentLevelOverride() const {
+    return 0;
+}
+
+int32 AGameModeZion::GetEnvironmentLevelNewGamePlus() const {
     return 0;
 }
 
@@ -229,6 +255,13 @@ void AGameModeZion::FastTravel(const FName& RestPointID) {
 }
 
 bool AGameModeZion::DidReachGameEnding(EGameEndingType GameEndingType, bool bCheckPreviousGameGeneration) const {
+    return false;
+}
+
+void AGameModeZion::DBG_SetNewGamePlusGeneration(int32 NewNewGamePlusGeneration) {
+}
+
+bool AGameModeZion::CanLeaveRecollectionBoss() const {
     return false;
 }
 

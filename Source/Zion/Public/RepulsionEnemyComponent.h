@@ -10,6 +10,7 @@
 #include "RepulsionEnemyComponent.generated.h"
 
 class AActor;
+class ACharacter;
 class UPrimitiveComponent;
 class UState;
 
@@ -35,6 +36,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FMovementModeData> IgnoreRepulsionMovementModes;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ACharacter* CharacterOwner;
     
 public:
     URepulsionEnemyComponent(const FObjectInitializer& ObjectInitializer);

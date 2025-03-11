@@ -7,6 +7,7 @@
 #include "InputActions.h"
 #include "InventoryItemSkillData.h"
 #include "InventoryItemSpiritData.h"
+#include "PlayerSkillLoadoutData.h"
 #include "SkillLevelData.h"
 #include "SkillComponent.generated.h"
 
@@ -21,6 +22,9 @@ public:
     FEquipSkillEvent OnEquipSkillDelegate;
     
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FEquipSkillEvent OnLoadEquippedSkillDelegate;
+    
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FEquipSkillEvent OnUnequipSkillDelegate;
     
 private:
@@ -33,17 +37,29 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<ESkillSlot, FEquippedSkillData> EquippedSkillDataForSkillSlots;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CurrentLoadoutIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPlayerSkillLoadoutData> SkillLoadouts;
+    
 public:
     USkillComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    void UnEquipAll();
+    void UnEquipAll(bool bRemoveFromCurrentLoadout);
     
     UFUNCTION(BlueprintCallable)
-    void UnEquip(ESkillSlot SkillSlot);
+    void UnEquip(ESkillSlot SkillSlot, bool bRemoveFromCurrentLoadout);
+    
+    UFUNCTION(BlueprintCallable)
+    void LoadEquippedSkills();
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasEquippedSkill(ESkillSlot SkillSlot) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool HasAnyEquippedSkill() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetMinimumEquippedSPCost() const;
@@ -66,8 +82,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     UCommandSet* GetEquippedCommandSet(ESkillSlot SkillSlot) const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetCurrentSkillLoadoutIndex() const;
+    
     UFUNCTION(BlueprintCallable)
-    void Equip(ESkillSlot SkillSlot, const FName& SkillID);
+    void EquipSkillLoadout(int32 LoadoutIndex, bool bAutoLoad);
+    
+    UFUNCTION(BlueprintCallable)
+    void Equip(ESkillSlot SkillSlot, const FName& SkillID, bool bAddToCurrentLoadout, bool bAutoLoad);
     
 };
 

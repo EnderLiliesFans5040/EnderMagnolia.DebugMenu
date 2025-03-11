@@ -5,6 +5,7 @@
 #include "InventoryItemPassiveData.h"
 #include "PassiveDelegateDelegate.h"
 #include "PassiveRuntimeData.h"
+#include "PlayerPassiveLoadoutData.h"
 #include "PassiveComponent.generated.h"
 
 class APawn;
@@ -32,17 +33,26 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 UsedSlotCount;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CurrentLoadoutIndex;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPassiveRuntimeData> Passives;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TArray<FPassiveRuntimeData> PassivesToUpdate;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPlayerPassiveLoadoutData> PassiveLoadouts;
+    
 public:
     UPassiveComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    bool UnequipPassive(const FName& PassiveID);
+    bool UnequipPassive(const FName& PassiveID, int32& OutPassiveIndex, bool bRemoveFromCurrentLoadout);
+    
+    UFUNCTION(BlueprintCallable)
+    void ReplacePassiveInAllLoadouts(const FName& PassiveToRemove, const FName& PassiveToAdd);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -62,10 +72,16 @@ public:
     TArray<FPassiveRuntimeData> GetEquippedPassives() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetCurrentPassiveLoadoutIndex() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetAvailableSlotCount() const;
     
     UFUNCTION(BlueprintCallable)
-    EPassiveEquipResult EquipPassive(const FName& PassiveID);
+    void EquipPassiveLoadout(int32 LoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    EPassiveEquipResult EquipPassive(const FName& PassiveID, bool bAddToCurrentLoadout, int32 InsertIndex);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     EPassiveEquipResult CanEquipPassive(const FInventoryItemPassiveData& ItemPassiveData) const;

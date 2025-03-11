@@ -1,5 +1,5 @@
 [English](README.md) | **简体中文**
-# EnderMagnolia.ModdingTemplate & DebugMenuInvoker
+# EnderMagnolia.DebugMenu
 
 ## 描述
 
@@ -35,11 +35,11 @@ F9: 事件模式
 
 F10: 无重力模式
 
-F12: 详细模式(已包含F7)
+F12: 详细模式 (已包含F7)
 
 ### 按住左Shift
 
-F1: 展示Hitbox(攻击或抛射物)
+F1: 展示Hitbox (攻击或抛射物)
 
 F2: 展示触发器,Hurtbox与碰撞胶囊
 
@@ -55,19 +55,19 @@ F12: 扭曲Boss阵营
 
 ### 时间与相机控制
 
-PageUp/PageDown: 加减时间流逝速度(按住左Shift精调)
+PageUp/PageDown: 加减时间流逝速度 (按住左Shift精调)
 
 Home/End: 重置时间流逝速度/时间停止
 
 (按住Alt控制玩家局部速度, 右Shift以精调)
 
-(若 Shift+F7 已打开, 玩家局部速度和游戏速度在被调整时将保持乘积速度不变, 即实际速度不变)
+(若 Shift + F7 已打开, 玩家局部速度和游戏速度在被调整时将保持乘积速度不变, 即实际速度不变)
 
 Numpad 2/4/6/8/5/+/-: 相机调整
 
 ### 技能组扩展
 
-1/2/3/4 + 方向 = 技能切换(1+左: 将第一技能调整为技能图中左边一个技能)
+1/2/3/4 + 方向 = 技能切换 (1 + 左: 将第一技能调整为技能图中左边一个技能)
 
 Numpad /: 切换技能组
 

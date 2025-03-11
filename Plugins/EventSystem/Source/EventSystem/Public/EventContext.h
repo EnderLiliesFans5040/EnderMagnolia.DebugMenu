@@ -9,6 +9,7 @@ class AEventCamera;
 class APawn;
 class APlayerController;
 class UEventAction;
+class UEventAsset;
 class UUserWidget;
 
 UCLASS(Blueprintable)
@@ -78,6 +79,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     AEventCamera* GetEventCamera() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    UEventAsset* GetEventAsset() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     AActor* GetActorForBinding(FName ActorBinding) const;

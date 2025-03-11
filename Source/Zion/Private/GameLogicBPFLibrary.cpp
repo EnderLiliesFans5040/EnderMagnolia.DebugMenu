@@ -62,6 +62,10 @@ int32 UGameLogicBPFLibrary::GetNextLevelForSkill(const UInventoryComponent* Inve
     return 0;
 }
 
+int32 UGameLogicBPFLibrary::GetEquipLoadoutCount() {
+    return 0;
+}
+
 bool UGameLogicBPFLibrary::CheckItemConditions(APlayerControllerZion* PlayerControllerZion, const FItemConditionData& ItemConditionData) {
     return false;
 }

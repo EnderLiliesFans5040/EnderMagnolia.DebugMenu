@@ -88,7 +88,4 @@ FVector UZionCharacterMovementComponent::ComputeLaunchVelocityToDestination(cons
     return FVector{};
 }
 
-void UZionCharacterMovementComponent::AddVelocity(const FVector& VelocityToAdd) {
-}
-
 

@@ -154,8 +154,5 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FVector ComputeLaunchVelocityToDestination(const FVector& DestinationLocation, float Duration) const;
     
-    UFUNCTION(BlueprintCallable)
-    void AddVelocity(const FVector& VelocityToAdd);
-    
 };
 

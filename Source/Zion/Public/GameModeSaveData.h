@@ -6,6 +6,7 @@
 #include "EGameEndingType.h"
 #include "GameStatsSaveData.h"
 #include "RecollectionBossRushSaveData.h"
+#include "RecollectionBossSaveData.h"
 #include "RenderStateManagerSaveData.h"
 #include "GameModeSaveData.generated.h"
 
@@ -45,6 +46,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRecollectionBossRushSaveData BossRush;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FRecollectionBossSaveData RecollectionBoss;
     
     ZION_API FGameModeSaveData();
 };

@@ -11,5 +11,7 @@ enum class ERespawnReason : uint8 {
     BackToRestpoint,
     ExitBossRush,
     ExitBossRecollection,
+    RetryBossRush,
+    RetryBossRecollection,
 };
 

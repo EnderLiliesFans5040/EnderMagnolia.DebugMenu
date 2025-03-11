@@ -41,6 +41,9 @@ private:
     FGameplayConditionChecker ConditionChecker;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bMarkAsClearedOnConditionFailed;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDataTableRowHandle EnemyRowHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -158,7 +161,6 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     ACharacterZion* GetEnemy() const;
     
-private:
     UFUNCTION(BlueprintCallable)
     void ActivateEnemy();
     

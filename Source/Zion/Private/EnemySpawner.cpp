@@ -4,6 +4,7 @@
 AEnemySpawner::AEnemySpawner(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ClearComponent = CreateDefaultSubobject<UClearComponent>(TEXT("Clear"));
     this->bUseConditionChecker = false;
+    this->bMarkAsClearedOnConditionFailed = false;
     this->bAutoActivateEnemy = true;
     this->ClearTiming = EEnemySpawnerClearTiming::OnDeathProcessStart;
     this->bSpawnEvenWhenCleared = false;

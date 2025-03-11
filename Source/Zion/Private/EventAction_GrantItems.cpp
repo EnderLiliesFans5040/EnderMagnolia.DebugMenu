@@ -2,7 +2,8 @@
 
 UEventAction_GrantItems::UEventAction_GrantItems() {
     this->bOverrideItemsOnEventRepeat = false;
-    this->bCheckPreviousRuns = true;
+    this->RepeatItemMode = EEventClearedCheckMode::PreviousGameGenerationsOnly;
+    this->RepeatItemHandleCounts.AddDefaulted(1);
 }
 
 

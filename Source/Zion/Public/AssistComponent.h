@@ -3,6 +3,7 @@
 #include "Components/ActorComponent.h"
 #include "EquippedAssist.h"
 #include "InventoryItemAssistData.h"
+#include "PlayerAssistLoadoutData.h"
 #include "AssistComponent.generated.h"
 
 class APawn;
@@ -15,11 +16,17 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     FEquippedAssist EquippedAssist;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CurrentLoadoutIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPlayerAssistLoadoutData> AssistLoadouts;
+    
 public:
     UAssistComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    void UnEquipAssist();
+    void UnEquipAssist(bool bRemoveFromCurrentLoadout);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -30,13 +37,19 @@ public:
     FInventoryItemAssistData GetEquippedAssistData() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetCurrentAssistLoadoutIndex() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FName GetAssistID() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FInventoryItemAssistData GetAssistDataFromID(const FName& AssistID) const;
     
     UFUNCTION(BlueprintCallable)
-    void EquipAssist(const FName& AssistID);
+    void EquipAssistLoadout(int32 LoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void EquipAssist(const FName& AssistID, bool bAddToCurrentLoadout);
     
 };
 

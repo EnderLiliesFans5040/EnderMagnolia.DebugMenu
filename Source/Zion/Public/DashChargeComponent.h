@@ -9,6 +9,7 @@
 
 class AAbility;
 class ACharacterZionSpirit;
+class UCommand;
 class UFMODAudioComponent;
 class UNiagaraComponent;
 class UState;
@@ -82,6 +83,9 @@ public:
 private:
     UFUNCTION(BlueprintCallable)
     void OnStartAnimation(UTrackEntry* TrackEntry);
+    
+    UFUNCTION(BlueprintCallable)
+    void OnCommandStart(const UCommand* Command);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintPure)

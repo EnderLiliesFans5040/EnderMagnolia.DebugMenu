@@ -6,6 +6,10 @@ URepulsionPlayerComponent::URepulsionPlayerComponent(const FObjectInitializer& O
     this->FallingForceFactor = 0.50f;
     this->SwimmingForceFactor = 0.25f;
     this->IgnoreRepulsionStates.AddDefaulted(2);
+    this->InputComponent = NULL;
+    this->ZionMovementComponent = NULL;
+    this->StateComponent = NULL;
+    this->CollisionComponent = NULL;
 }
 
 void URepulsionPlayerComponent::RemoveRepulsionEnemyComponent(URepulsionEnemyComponent* RepulsionEnemyComponent, UPrimitiveComponent* Collider) {

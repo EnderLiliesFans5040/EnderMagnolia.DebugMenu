@@ -68,6 +68,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static int32 GetNextLevelForSkill(const UInventoryComponent* InventoryComponent, const FDataTableRowHandle& SkillHandle);
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetEquipLoadoutCount();
+    
     UFUNCTION(BlueprintCallable)
     static bool CheckItemConditions(APlayerControllerZion* PlayerControllerZion, const FItemConditionData& ItemConditionData);
     

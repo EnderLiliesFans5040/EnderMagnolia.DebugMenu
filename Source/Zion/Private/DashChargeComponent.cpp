@@ -18,6 +18,9 @@ UDashChargeComponent::UDashChargeComponent(const FObjectInitializer& ObjectIniti
 void UDashChargeComponent::OnStartAnimation(UTrackEntry* TrackEntry) {
 }
 
+void UDashChargeComponent::OnCommandStart(const UCommand* Command) {
+}
+
 bool UDashChargeComponent::IsDashCharged() const {
     return false;
 }

@@ -47,6 +47,9 @@ protected:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnRefreshPlayerUIVisibility(bool bVisible);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnRefreshLowHPFeedbackOpacity(float Opacity);
+    
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnPlayerInputUnlocked();
@@ -55,6 +58,9 @@ public:
     void OnPlayerInputLocked();
     
 private:
+    UFUNCTION(BlueprintCallable)
+    void OnLowHPFeedbackOpacityChanged();
+    
     UFUNCTION(BlueprintCallable)
     void OnDisplayPlayerUIChanged();
     

@@ -1,5 +1,5 @@
 **English** | [简体中文](README_CN.md)
-# EnderMagnolia.ModdingTemplate & DebugMenuInvoker
+# EnderMagnolia.DebugMenu
 
 ## Description
 
@@ -35,7 +35,7 @@ F9: Event mode
 
 F10: Toggle Gravity
 
-F12: Detail info
+F12: Detail info (including function in F7)
 
 ### With Left Shift
 
@@ -55,7 +55,7 @@ F12: Twist Boss Faction
 
 ### Time control and camera control
 
-PageUp/PageDown: speed up/down(finer control with Left Shift)
+PageUp/PageDown: speed up/down (finer control with Left Shift)
 
 Home/End: reset speed/pause
 
@@ -67,7 +67,7 @@ Numpad 2/4/6/8/5/+/-: camera control
 
 ### Skill set extension
 
-1/2/3/4 + Direction = SkillX switch(1+Left: Skill1 switch to left one in the skill menu)
+1/2/3/4 + Direction = SkillX switch (1 + Left: Skill1 switch to left one in the skill menu)
 
 Numpad /: Skill set switch
 

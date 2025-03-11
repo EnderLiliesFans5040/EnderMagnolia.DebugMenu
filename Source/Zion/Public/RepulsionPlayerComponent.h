@@ -5,9 +5,13 @@
 #include "Templates/SubclassOf.h"
 #include "RepulsionPlayerComponent.generated.h"
 
+class UCollisionComponent;
 class UPrimitiveComponent;
 class URepulsionEnemyComponent;
 class UState;
+class UStateComponent;
+class UZionCharacterMovementComponent;
+class UZionInputComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
 class URepulsionPlayerComponent : public UActorComponent {
@@ -31,6 +35,18 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FMovementModeData> IgnoreMovementModes;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UZionInputComponent* InputComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UZionCharacterMovementComponent* ZionMovementComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UStateComponent* StateComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UCollisionComponent* CollisionComponent;
     
 public:
     URepulsionPlayerComponent(const FObjectInitializer& ObjectInitializer);

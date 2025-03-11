@@ -5,10 +5,14 @@ UPassiveComponent::UPassiveComponent(const FObjectInitializer& ObjectInitializer
     this->DefaultSlotCount = 10;
     this->AdditionalSlotCount = 0;
     this->UsedSlotCount = 0;
+    this->CurrentLoadoutIndex = 0;
 }
 
-bool UPassiveComponent::UnequipPassive(const FName& PassiveID) {
+bool UPassiveComponent::UnequipPassive(const FName& PassiveID, int32& OutPassiveIndex, bool bRemoveFromCurrentLoadout) {
     return false;
+}
+
+void UPassiveComponent::ReplacePassiveInAllLoadouts(const FName& PassiveToRemove, const FName& PassiveToAdd) {
 }
 
 void UPassiveComponent::OnPossessedPawnChanged(APawn* OldPawn, APawn* NewPawn) {
@@ -30,11 +34,18 @@ TArray<FPassiveRuntimeData> UPassiveComponent::GetEquippedPassives() const {
     return TArray<FPassiveRuntimeData>();
 }
 
+int32 UPassiveComponent::GetCurrentPassiveLoadoutIndex() const {
+    return 0;
+}
+
 int32 UPassiveComponent::GetAvailableSlotCount() const {
     return 0;
 }
 
-EPassiveEquipResult UPassiveComponent::EquipPassive(const FName& PassiveID) {
+void UPassiveComponent::EquipPassiveLoadout(int32 LoadoutIndex) {
+}
+
+EPassiveEquipResult UPassiveComponent::EquipPassive(const FName& PassiveID, bool bAddToCurrentLoadout, int32 InsertIndex) {
     return EPassiveEquipResult::Success;
 }
 

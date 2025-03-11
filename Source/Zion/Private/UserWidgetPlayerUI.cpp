@@ -25,6 +25,10 @@ void UUserWidgetPlayerUI::RefreshCustomMarkers() const {
 
 
 
+
+void UUserWidgetPlayerUI::OnLowHPFeedbackOpacityChanged() {
+}
+
 void UUserWidgetPlayerUI::OnDisplayPlayerUIChanged() {
 }
 

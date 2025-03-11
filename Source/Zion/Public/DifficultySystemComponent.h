@@ -3,6 +3,7 @@
 #include "Components/ActorComponent.h"
 #include "Curves/CurveFloat.h"
 #include "DifficultySettings.h"
+#include "EDifficultyMode.h"
 #include "EDifficultyPreset.h"
 #include "DifficultySystemComponent.generated.h"
 
@@ -38,11 +39,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FRuntimeFloatCurve StaminaRecoverySpeedFactorCurrencyCurve;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EDifficultyMode, EDifficultyPreset> DifficultyPresets;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    TMap<EDifficultyMode, FDifficultySettings> DifficultySettings;
+    
 public:
     UDifficultySystemComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
     void SetDifficultyPresetAndSettings(EDifficultyPreset NewDifficultyPreset, const FDifficultySettings& NewDifficultySettings);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetDifficultyMode(EDifficultyMode NewDifficultyMode);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool HasAnyChallengeEnabled() const;
@@ -51,13 +61,22 @@ public:
     FDifficultySettings GetDifficultySettingsForPreset(EDifficultyPreset InDifficultyPreset) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    FDifficultySettings GetDifficultySettingsForMode(EDifficultyMode InDifficultyMode) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     FDifficultySettings GetDifficultySettings() const;
     
     UFUNCTION(BlueprintCallable)
     EDifficultyPreset GetDifficultyPresetFromSettings(const FDifficultySettings& InDifficultySettings);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    EDifficultyPreset GetDifficultyPresetForMode(EDifficultyMode InDifficultyMode) const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     EDifficultyPreset GetDifficultyPreset() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    EDifficultyMode GetDifficultyMode() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     float GetCurrencyFactorRatio() const;

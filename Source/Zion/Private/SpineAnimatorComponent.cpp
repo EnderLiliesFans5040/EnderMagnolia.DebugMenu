@@ -19,6 +19,16 @@ USpineAnimatorComponent::USpineAnimatorComponent(const FObjectInitializer& Objec
     this->DamageAdditiveAnimation = TEXT("damage_add");
     this->DamageAdditiveForbiddenStates.AddDefaulted(1);
     this->bFlushOnStagger = false;
+    this->SpineAnimation = NULL;
+    this->RootMotionComponent = NULL;
+    this->Character = NULL;
+    this->ZionMovementComponent = NULL;
+    this->KnockbackComponent = NULL;
+    this->StunComponent = NULL;
+    this->LocomotionComponent = NULL;
+    this->StateComponent = NULL;
+    this->DeathComponent = NULL;
+    this->DashChargeComponent = NULL;
 }
 
 void USpineAnimatorComponent::StopAnimationAtLayer(ESpineAnimatorLayer Layer) {

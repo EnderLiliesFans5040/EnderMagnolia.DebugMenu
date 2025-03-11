@@ -18,6 +18,10 @@ float UGameSettingsSubsystem::SetResolutionScale(float NewResolutionScale) {
     return 0.0f;
 }
 
+float UGameSettingsSubsystem::SetLowHPFeedbackOpacity(float NewLowHPFeedbackOpacity) {
+    return 0.0f;
+}
+
 void UGameSettingsSubsystem::SetLanguage(const FString& Language) {
 }
 
@@ -109,6 +113,10 @@ float UGameSettingsSubsystem::ResetResolutionScale() {
     return 0.0f;
 }
 
+float UGameSettingsSubsystem::ResetLowHPFeedbackOpacity() {
+    return 0.0f;
+}
+
 bool UGameSettingsSubsystem::ResetHoldDownToDodgeStill() {
     return false;
 }
@@ -192,6 +200,10 @@ float UGameSettingsSubsystem::GetMinResolutionScale() {
 }
 
 float UGameSettingsSubsystem::GetMaxResolutionScale() {
+    return 0.0f;
+}
+
+float UGameSettingsSubsystem::GetLowHPFeedbackOpacity() const {
     return 0.0f;
 }
 

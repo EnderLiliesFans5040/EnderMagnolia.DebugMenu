@@ -3,44 +3,36 @@
 
 URecollectionBossRushComponent::URecollectionBossRushComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->ExitRespawnReason = ERespawnReason::ExitBossRush;
+    this->RetryRespawnReason = ERespawnReason::RetryBossRush;
     this->CurrentBossRushIndex = -1;
     this->PreNextBossDelay = 5.00f;
     this->PreClearProcessDelay = 5.00f;
+    this->EnemyHPFactor = 1.00f;
+    this->bAllowEnemyDrop = false;
 }
 
 int32 URecollectionBossRushComponent::TryAddNewRecord(const FRecollectionBossRushRecordData& NewRecordData) {
     return 0;
 }
 
-bool URecollectionBossRushComponent::SetTimerPaused(bool bIsPaused) {
+bool URecollectionBossRushComponent::ShouldDisplayRecollectionBossRush() const {
     return false;
 }
 
-bool URecollectionBossRushComponent::SetIsNewGamePlusDifficulty(bool bEnabled) {
+bool URecollectionBossRushComponent::SetTimerPaused(bool bIsPaused) {
     return false;
 }
 
 void URecollectionBossRushComponent::ResetCurrentRecords() {
 }
 
-EDifficultyPreset URecollectionBossRushComponent::PreviousBossRushDifficultyPreset() {
-    return EDifficultyPreset::None;
-}
 
 
 
 
 
-
-EDifficultyPreset URecollectionBossRushComponent::NextBossRushDifficultyPreset() {
-    return EDifficultyPreset::None;
-}
 
 bool URecollectionBossRushComponent::IsTimerPaused() const {
-    return false;
-}
-
-bool URecollectionBossRushComponent::IsNewGamePlusDifficulty() const {
     return false;
 }
 
@@ -67,14 +59,14 @@ EDifficultyPreset URecollectionBossRushComponent::GetBossRushDifficultyPreset() 
     return EDifficultyPreset::None;
 }
 
+void URecollectionBossRushComponent::GameMapChangePostFade() {
+}
+
 void URecollectionBossRushComponent::ClearBossRush() {
 }
 
 bool URecollectionBossRushComponent::CanUpdateTime_Implementation() const {
     return false;
-}
-
-void URecollectionBossRushComponent::BossActivation(AEnemySpawner* EnemySpawner) {
 }
 
 

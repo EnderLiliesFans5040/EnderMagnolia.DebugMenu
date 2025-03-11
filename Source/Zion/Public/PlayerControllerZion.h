@@ -3,6 +3,7 @@
 #include "Engine/DataTable.h"
 #include "EventActorInterface.h"
 #include "ClearActorData.h"
+#include "EEventClearedCheckMode.h"
 #include "ERespawnReason.h"
 #include "ETutorialHook.h"
 #include "EWidgetMinimapDisplayMode.h"
@@ -10,6 +11,7 @@
 #include "PlayerControllerZionBase.h"
 #include "RestPointEventData.h"
 #include "RuntimeCheckpointData.h"
+#include "SummonStashElement.h"
 #include "Templates/SubclassOf.h"
 #include "PlayerControllerZion.generated.h"
 
@@ -163,6 +165,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<ERespawnReason> ClearPlayerTrailRespawnReasons;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FSummonStashElement> SummonStash;
+    
 public:
     APlayerControllerZion(const FObjectInitializer& ObjectInitializer);
 
@@ -225,6 +230,9 @@ public:
     void MarkExtraEnemyInfoAsAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem);
     
     UFUNCTION(BlueprintCallable)
+    void MarkEventAsCleared(const UEventAsset* EventAsset);
+    
+    UFUNCTION(BlueprintCallable)
     void MarkEnemyAsKilled(const FDataTableRowHandle& EnemyDataHandle);
     
     UFUNCTION(BlueprintCallable)
@@ -258,7 +266,7 @@ public:
     bool IsExtraEnemyInfoAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsEventCleared(const FName EventId, bool bCheckPreviousRuns) const;
+    bool IsEventCleared(const FName EventId, const EEventClearedCheckMode CheckMode) const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsEnemyKilled(const FDataTableRowHandle& EnemyDataHandle) const;

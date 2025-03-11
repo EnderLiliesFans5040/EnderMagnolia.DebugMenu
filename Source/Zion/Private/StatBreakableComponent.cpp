@@ -2,7 +2,6 @@
 
 UStatBreakableComponent::UStatBreakableComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->RegenerationBlockingStates.AddDefaulted(1);
-    this->BreakRecoveryBlockingStates.AddDefaulted(1);
     this->bEnabled = true;
     this->bUseMultiplicativeParameters = false;
     this->bUseAdditiveParameters = false;

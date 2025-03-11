@@ -174,6 +174,9 @@ private:
     TMap<FName, int32> EnvironmentLevelForGameMaps;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 EnvironmentLevelOverride;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<EGameEndingType, int32> ReachedGameEndings;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
@@ -181,6 +184,9 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     int32 NewGamePlusGeneration;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 NewGamePlusGenerationOverride;
     
 public:
     AGameModeZion(const FObjectInitializer& ObjectInitializer);
@@ -192,7 +198,19 @@ public:
     void StartRecollectionBoss(const FDataTableRowHandle& RecollectionBossDataHandle);
     
     UFUNCTION(BlueprintCallable)
+    void SetNewGamePlusGenerationOverride(int32 GenerationOverride);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetEnvironmentLevelOverride(int32 LevelOverride);
+    
+    UFUNCTION(BlueprintCallable)
     void RespawnPlayer(ERespawnReason Reason);
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetNewGamePlusGenerationOverride();
+    
+    UFUNCTION(BlueprintCallable)
+    void ResetEnvironmentLevelOverride();
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -204,9 +222,6 @@ private:
 public:
     UFUNCTION(BlueprintCallable)
     void NotifyGameEndingReached(EGameEndingType GameEndingType);
-    
-    UFUNCTION(BlueprintCallable, BlueprintPure)
-    bool IsRecollectionBossDead() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool IsInNewGamePlus() const;
@@ -230,7 +245,13 @@ public:
     FString GetPlayTimeAsString() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetNewGamePlusGenerationOverride() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetNewGamePlusGeneration() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    static int32 GetMaxEnvironmentLevel(int32 NewNewGamePlusGeneration);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FDataTableRowHandle GetLastBossRecollectionHandle() const;
@@ -243,6 +264,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetGameClearCount() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetEnvironmentLevelOverride() const;
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetEnvironmentLevelNewGamePlus() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     int32 GetEnvironmentLevel() const;
@@ -339,6 +366,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     bool DidReachGameEnding(EGameEndingType GameEndingType, bool bCheckPreviousGameGeneration) const;
+    
+    UFUNCTION(BlueprintCallable)
+    void DBG_SetNewGamePlusGeneration(int32 NewNewGamePlusGeneration);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    bool CanLeaveRecollectionBoss() const;
     
 };
 

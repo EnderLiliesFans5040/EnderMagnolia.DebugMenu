@@ -8,11 +8,18 @@ UDifficultySystemComponent::UDifficultySystemComponent(const FObjectInitializer&
 void UDifficultySystemComponent::SetDifficultyPresetAndSettings(EDifficultyPreset NewDifficultyPreset, const FDifficultySettings& NewDifficultySettings) {
 }
 
+void UDifficultySystemComponent::SetDifficultyMode(EDifficultyMode NewDifficultyMode) {
+}
+
 bool UDifficultySystemComponent::HasAnyChallengeEnabled() const {
     return false;
 }
 
 FDifficultySettings UDifficultySystemComponent::GetDifficultySettingsForPreset(EDifficultyPreset InDifficultyPreset) const {
+    return FDifficultySettings{};
+}
+
+FDifficultySettings UDifficultySystemComponent::GetDifficultySettingsForMode(EDifficultyMode InDifficultyMode) const {
     return FDifficultySettings{};
 }
 
@@ -24,8 +31,16 @@ EDifficultyPreset UDifficultySystemComponent::GetDifficultyPresetFromSettings(co
     return EDifficultyPreset::None;
 }
 
+EDifficultyPreset UDifficultySystemComponent::GetDifficultyPresetForMode(EDifficultyMode InDifficultyMode) const {
+    return EDifficultyPreset::None;
+}
+
 EDifficultyPreset UDifficultySystemComponent::GetDifficultyPreset() const {
     return EDifficultyPreset::None;
+}
+
+EDifficultyMode UDifficultySystemComponent::GetDifficultyMode() const {
+    return EDifficultyMode::DefaultGame;
 }
 
 float UDifficultySystemComponent::GetCurrencyFactorRatio() const {

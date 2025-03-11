@@ -11,6 +11,10 @@ bool UDataTableBPFLibrary::IsRecollectionItemVisible(APlayerControllerZion* Play
     return false;
 }
 
+bool UDataTableBPFLibrary::IsProgressionItem(const FDataTableRowHandle& ItemHandle) {
+    return false;
+}
+
 bool UDataTableBPFLibrary::IsItemNPCInfoVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle) {
     return false;
 }

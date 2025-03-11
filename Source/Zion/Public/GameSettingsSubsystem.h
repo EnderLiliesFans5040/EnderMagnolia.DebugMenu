@@ -38,6 +38,9 @@ public:
     UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FGameSettingsDelegate OnAutoClimbDirectionModeChanged;
     
+    UPROPERTY(BlueprintAssignable, BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FGameSettingsDelegate OnLowHPFeedbackOpacityChanged;
+    
     UGameSettingsSubsystem();
 
     UFUNCTION(BlueprintCallable)
@@ -51,6 +54,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     float SetResolutionScale(float NewResolutionScale);
+    
+    UFUNCTION(BlueprintCallable)
+    float SetLowHPFeedbackOpacity(float NewLowHPFeedbackOpacity);
     
     UFUNCTION(BlueprintCallable)
     void SetLanguage(const FString& Language);
@@ -125,6 +131,9 @@ public:
     float ResetResolutionScale();
     
     UFUNCTION(BlueprintCallable)
+    float ResetLowHPFeedbackOpacity();
+    
+    UFUNCTION(BlueprintCallable)
     bool ResetHoldDownToDodgeStill();
     
     UFUNCTION(BlueprintCallable)
@@ -189,6 +198,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     static float GetMaxResolutionScale();
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    float GetLowHPFeedbackOpacity() const;
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FString GetLanguage() const;

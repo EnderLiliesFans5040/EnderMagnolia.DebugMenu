@@ -43,6 +43,9 @@ public:
     static bool IsRecollectionItemVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle, ERecollectionItemType RecollectionItemType);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)
+    static bool IsProgressionItem(const FDataTableRowHandle& ItemHandle);
+    
+    UFUNCTION(BlueprintCallable, BlueprintPure)
     static bool IsItemNPCInfoVisible(APlayerControllerZion* PlayerControllerZion, const FDataTableRowHandle& Handle);
     
     UFUNCTION(BlueprintCallable, BlueprintPure)

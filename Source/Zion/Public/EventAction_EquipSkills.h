@@ -11,6 +11,9 @@ class UEventAction_EquipSkills : public UEventAction {
 public:
 private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bOnlyIfSetIsEmpty;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TMap<ESkillSlot, FDataTableRowHandle> SkillsToEquip;
     
 public:

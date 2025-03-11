@@ -23,6 +23,10 @@ UHomingComponent::UHomingComponent(const FObjectInitializer& ObjectInitializer) 
     this->bAutoStopHoming = false;
     this->AutoStopHomingDelay = 0.00f;
     this->RangeForTargetReach = 25.00f;
+    this->bIncreaseRangeOverTime = false;
+    this->IncreaseRangeOverTimeDelay = 0.00f;
+    this->ReachMaxRangeTime = 0.00f;
+    this->MaxRangeForTargetReach = 100.00f;
 }
 
 void UHomingComponent::SetTarget(const AActor* TargetActor, bool bReset) {

@@ -1,12 +1,13 @@
 #include "EquipmentComponent.h"
 
 UEquipmentComponent::UEquipmentComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentLoadoutIndex = 0;
 }
 
-void UEquipmentComponent::UnEquipAll() {
+void UEquipmentComponent::UnEquipAll(bool bRemoveFromCurrentLoadout) {
 }
 
-void UEquipmentComponent::UnEquip(EEquipmentSlot EquipmentSlot) {
+void UEquipmentComponent::UnEquip(EEquipmentSlot EquipmentSlot, bool bRemoveFromCurrentLoadout) {
 }
 
 void UEquipmentComponent::OnPossessedPawnChanged(APawn* OldPawn, APawn* NewPawn) {
@@ -32,7 +33,14 @@ FInventoryItemEquipmentData UEquipmentComponent::GetEquipmentDataFromID(const FN
     return FInventoryItemEquipmentData{};
 }
 
-void UEquipmentComponent::Equip(EEquipmentSlot EquipmentSlot, const FName& EquipmentID) {
+int32 UEquipmentComponent::GetCurrentEquipmentLoadoutIndex() const {
+    return 0;
+}
+
+void UEquipmentComponent::EquipEquipmentLoadout(int32 LoadoutIndex) {
+}
+
+void UEquipmentComponent::Equip(EEquipmentSlot EquipmentSlot, const FName& EquipmentID, bool bAddToCurrentLoadout) {
 }
 
 

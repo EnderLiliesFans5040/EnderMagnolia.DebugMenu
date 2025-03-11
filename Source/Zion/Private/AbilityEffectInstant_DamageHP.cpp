@@ -6,6 +6,7 @@ UAbilityEffectInstant_DamageHP::UAbilityEffectInstant_DamageHP() {
     this->DamageFactor = 1.00f;
     this->AbsoluteDamage = 0;
     this->TargetPercentageDamage = 0.00f;
+    this->bIgnoreInstantKillSetting = false;
 }
 
 

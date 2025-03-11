@@ -25,5 +25,6 @@ FGameSettingsData::FGameSettingsData() {
     this->LeftStickDeadZone = 0.00f;
     this->RightStickDeadZone = 0.00f;
     this->TitleScreenType = EGameEndingType::None;
+    this->LowHPFeedbackOpacity = 0.00f;
 }
 

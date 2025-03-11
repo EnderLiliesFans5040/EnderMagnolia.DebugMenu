@@ -85,6 +85,9 @@ void APlayerControllerZion::MarkRecollectionItemAsChecked(const FDataTableRowHan
 void APlayerControllerZion::MarkExtraEnemyInfoAsAvailable(const FDataTableRowHandle& ExtraEnemyInfoItem) {
 }
 
+void APlayerControllerZion::MarkEventAsCleared(const UEventAsset* EventAsset) {
+}
+
 void APlayerControllerZion::MarkEnemyAsKilled(const FDataTableRowHandle& EnemyDataHandle) {
 }
 
@@ -126,7 +129,7 @@ bool APlayerControllerZion::IsExtraEnemyInfoAvailable(const FDataTableRowHandle&
     return false;
 }
 
-bool APlayerControllerZion::IsEventCleared(const FName EventId, bool bCheckPreviousRuns) const {
+bool APlayerControllerZion::IsEventCleared(const FName EventId, const EEventClearedCheckMode CheckMode) const {
     return false;
 }
 

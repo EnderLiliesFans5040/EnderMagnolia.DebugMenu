@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "EEventClearedCheckMode.h"
 #include "EGameEndingType.h"
 #include "ItemConditionData.generated.h"
 
@@ -12,6 +13,9 @@ struct FItemConditionData {
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<TSoftObjectPtr<UEventAsset>> ClearedEvents;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EEventClearedCheckMode EventCheckMode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FDataTableRowHandle> OwnedItems;

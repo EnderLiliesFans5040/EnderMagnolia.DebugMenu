@@ -4,6 +4,7 @@
 #include "EEquipmentSlot.h"
 #include "EquippedItem.h"
 #include "InventoryItemEquipmentData.h"
+#include "PlayerEquipmentLoadoutData.h"
 #include "EquipmentComponent.generated.h"
 
 class APawn;
@@ -16,14 +17,20 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
     TMap<EEquipmentSlot, FEquippedItem> EquippedItems;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    int32 CurrentLoadoutIndex;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    TArray<FPlayerEquipmentLoadoutData> EquipmentLoadouts;
+    
 public:
     UEquipmentComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
-    void UnEquipAll();
+    void UnEquipAll(bool bRemoveFromCurrentLoadout);
     
     UFUNCTION(BlueprintCallable)
-    void UnEquip(EEquipmentSlot EquipmentSlot);
+    void UnEquip(EEquipmentSlot EquipmentSlot, bool bRemoveFromCurrentLoadout);
     
 private:
     UFUNCTION(BlueprintCallable)
@@ -45,8 +52,14 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintPure)
     FInventoryItemEquipmentData GetEquipmentDataFromID(const FName& EquipmentID) const;
     
+    UFUNCTION(BlueprintCallable, BlueprintPure)
+    int32 GetCurrentEquipmentLoadoutIndex() const;
+    
     UFUNCTION(BlueprintCallable)
-    void Equip(EEquipmentSlot EquipmentSlot, const FName& EquipmentID);
+    void EquipEquipmentLoadout(int32 LoadoutIndex);
+    
+    UFUNCTION(BlueprintCallable)
+    void Equip(EEquipmentSlot EquipmentSlot, const FName& EquipmentID, bool bAddToCurrentLoadout);
     
 };
 

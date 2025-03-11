@@ -14,6 +14,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     FDifficultySettings DifficultySettings;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    EDifficultyPreset BossRushDifficultyPreset;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    FDifficultySettings BossRushDifficultySettings;
+    
     ZION_API FDifficultySystemSaveData();
 };
 

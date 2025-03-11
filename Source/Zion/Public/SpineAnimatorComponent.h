@@ -15,8 +15,18 @@
 #include "Templates/SubclassOf.h"
 #include "SpineAnimatorComponent.generated.h"
 
+class ACharacter;
+class UDashChargeComponent;
+class UDeathComponent;
+class UKnockbackComponent;
+class ULocomotionComponent;
+class USpineRootMotionComponent;
+class USpineSkeletonAnimationComponent;
 class UState;
+class UStateComponent;
+class UStunComponent;
 class UTrackEntry;
+class UZionCharacterMovementComponent;
 
 UCLASS(Blueprintable, ClassGroup=Custom, Within=Character, meta=(BlueprintSpawnableComponent))
 class USpineAnimatorComponent : public UActorComponent {
@@ -289,6 +299,36 @@ private:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     TArray<FSpineAnimationTransitionDefinition> TransitionDefinitions;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USpineSkeletonAnimationComponent* SpineAnimation;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    USpineRootMotionComponent* RootMotionComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, meta=(AllowPrivateAccess=true))
+    ACharacter* Character;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UZionCharacterMovementComponent* ZionMovementComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UKnockbackComponent* KnockbackComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UStunComponent* StunComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    ULocomotionComponent* LocomotionComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UStateComponent* StateComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UDeathComponent* DeathComponent;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced, Transient, meta=(AllowPrivateAccess=true))
+    UDashChargeComponent* DashChargeComponent;
     
 public:
     USpineAnimatorComponent(const FObjectInitializer& ObjectInitializer);

@@ -1,15 +1,23 @@
 #include "SkillComponent.h"
 
 USkillComponent::USkillComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentLoadoutIndex = 0;
 }
 
-void USkillComponent::UnEquipAll() {
+void USkillComponent::UnEquipAll(bool bRemoveFromCurrentLoadout) {
 }
 
-void USkillComponent::UnEquip(ESkillSlot SkillSlot) {
+void USkillComponent::UnEquip(ESkillSlot SkillSlot, bool bRemoveFromCurrentLoadout) {
+}
+
+void USkillComponent::LoadEquippedSkills() {
 }
 
 bool USkillComponent::HasEquippedSkill(ESkillSlot SkillSlot) const {
+    return false;
+}
+
+bool USkillComponent::HasAnyEquippedSkill() const {
     return false;
 }
 
@@ -41,7 +49,14 @@ UCommandSet* USkillComponent::GetEquippedCommandSet(ESkillSlot SkillSlot) const 
     return NULL;
 }
 
-void USkillComponent::Equip(ESkillSlot SkillSlot, const FName& SkillID) {
+int32 USkillComponent::GetCurrentSkillLoadoutIndex() const {
+    return 0;
+}
+
+void USkillComponent::EquipSkillLoadout(int32 LoadoutIndex, bool bAutoLoad) {
+}
+
+void USkillComponent::Equip(ESkillSlot SkillSlot, const FName& SkillID, bool bAddToCurrentLoadout, bool bAutoLoad) {
 }
 
 

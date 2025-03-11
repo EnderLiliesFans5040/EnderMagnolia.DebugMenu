@@ -14,7 +14,7 @@ public:
     float Time;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bProcessed;
+    TSet<FName> ProcessedTags;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     bool bProcessedExactly;

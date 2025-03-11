@@ -88,6 +88,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     EGameEndingType TitleScreenType;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    float LowHPFeedbackOpacity;
+    
     ZION_API FGameSettingsData();
 };
 

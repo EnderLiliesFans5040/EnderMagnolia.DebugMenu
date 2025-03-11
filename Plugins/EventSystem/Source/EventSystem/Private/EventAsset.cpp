@@ -8,6 +8,7 @@ UEventAsset::UEventAsset() {
     this->bHidePlayerUI = true;
     this->bLockFastTravel = true;
     this->bAutoDismissSpirits = true;
+    this->bAutoReSummonAutoSpirits = true;
     this->bAllowAutoSkip = false;
     this->bDefaultAllowSkip = true;
     this->SkipActionClass = NULL;

@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "EEventClearedCheckMode.h"
 #include "EventAction_GrantItemsBase.h"
 #include "ItemHandleCount.h"
 #include "EventAction_GrantItems.generated.h"
@@ -16,10 +17,10 @@ private:
     bool bOverrideItemsOnEventRepeat;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    TArray<FItemHandleCount> RepeatItemHandleCounts;
+    EEventClearedCheckMode RepeatItemMode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
-    bool bCheckPreviousRuns;
+    TArray<FItemHandleCount> RepeatItemHandleCounts;
     
 public:
     UEventAction_GrantItems();

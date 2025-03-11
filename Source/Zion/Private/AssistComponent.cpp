@@ -1,9 +1,10 @@
 #include "AssistComponent.h"
 
 UAssistComponent::UAssistComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    this->CurrentLoadoutIndex = 0;
 }
 
-void UAssistComponent::UnEquipAssist() {
+void UAssistComponent::UnEquipAssist(bool bRemoveFromCurrentLoadout) {
 }
 
 void UAssistComponent::OnPossessedPawnChanged(APawn* OldPawn, APawn* NewPawn) {
@@ -11,6 +12,10 @@ void UAssistComponent::OnPossessedPawnChanged(APawn* OldPawn, APawn* NewPawn) {
 
 FInventoryItemAssistData UAssistComponent::GetEquippedAssistData() const {
     return FInventoryItemAssistData{};
+}
+
+int32 UAssistComponent::GetCurrentAssistLoadoutIndex() const {
+    return 0;
 }
 
 FName UAssistComponent::GetAssistID() const {
@@ -21,7 +26,10 @@ FInventoryItemAssistData UAssistComponent::GetAssistDataFromID(const FName& Assi
     return FInventoryItemAssistData{};
 }
 
-void UAssistComponent::EquipAssist(const FName& AssistID) {
+void UAssistComponent::EquipAssistLoadout(int32 LoadoutIndex) {
+}
+
+void UAssistComponent::EquipAssist(const FName& AssistID, bool bAddToCurrentLoadout) {
 }
 
 

@@ -74,6 +74,10 @@ AEventCamera* UEventContext::GetEventCamera() const {
     return NULL;
 }
 
+UEventAsset* UEventContext::GetEventAsset() const {
+    return NULL;
+}
+
 AActor* UEventContext::GetActorForBinding(FName ActorBinding) const {
     return NULL;
 }

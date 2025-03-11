@@ -25,6 +25,9 @@ private:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
     float TargetPercentageDamage;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, meta=(AllowPrivateAccess=true))
+    bool bIgnoreInstantKillSetting;
+    
 public:
     UAbilityEffectInstant_DamageHP();
 
